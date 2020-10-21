@@ -59,6 +59,10 @@ h2 {
 	margin: 0.1776in auto;
 	line-height: 1.776;
 	max-width: 80%;
+
+	&.github {
+		margin-bottom: 0;
+	}
 }
 
 p {

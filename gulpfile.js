@@ -4,22 +4,20 @@ var autoprefixer = require("gulp-autoprefixer");
 var browserSync = require("browser-sync");
 var cssmin = require("gulp-cssmin");
 var htmlmin = require("gulp-htmlmin");
-var markdown = require("gulp-markdown");
 var pump = require("pump");
 var rename = require("gulp-rename");
 var sass = require("gulp-sass");
 var slim = require("gulp-slim");
 var size = require("gulp-size");
-var uglify = require("gulp-uglify");
 
-// Browser Sync ======================================================
+// Browser Sync ========================================================
 gulp.task("sync", function () {
 	return browserSync({
 		server: "",
 	});
 });
 
-// Refresh ===========================================================
+// Refresh =============================================================
 gulp.task("refresh", function () {
 	return gulp.src("*").pipe(
 		browserSync.reload({
@@ -28,16 +26,7 @@ gulp.task("refresh", function () {
 	);
 });
 
-// Compile Markdown ==================================================
-gulp.task("markdown", function () {
-	return gulp
-		.src("src/*.md")
-		.pipe(markdown())
-		.pipe(rename("body.html"))
-		.pipe(gulp.dest(""));
-});
-
-// Compile HTML ======================================================
+// Compile HTML ========================================================
 gulp.task("html", function () {
 	return gulp
 		.src("src/*.slim")
@@ -62,18 +51,7 @@ gulp.task("html", function () {
 		);
 });
 
-// JS ================================================================
-gulp.task("js", function (cb) {
-	pump([gulp.src("src/antiweather.js"), uglify(), gulp.dest("")], cb)
-		.pipe(gulp.dest(""))
-		.pipe(
-			browserSync.reload({
-				stream: true,
-			})
-		);
-});
-
-// Compile CSS =======================================================
+// Compile SCSS ========================================================
 gulp.task("scss", function () {
 	return gulp
 		.src("src/*.scss")
@@ -100,7 +78,7 @@ gulp.task("scss", function () {
 		);
 });
 
-// Compile CSS =======================================================
+// Minify CSS ==========================================================
 gulp.task("css", function () {
 	return gulp
 		.src("src/*.css")
@@ -121,12 +99,10 @@ gulp.task("css", function () {
 		);
 });
 
-// Watch Files For Changes ===========================================
+// Watch Files For Changes =============================================
 gulp.task("watch", ["sync"], function () {
 	gulp.watch("src/*.md", ["markdown", "html"]);
 	gulp.watch("src/*.slim", ["html"]);
-	gulp.watch("src/*.slim", ["html"]);
-	gulp.watch("src/antiweather.js", ["js"]);
 	gulp.watch("src/*.scss", ["scss"]);
 	gulp.watch("src/*.css", ["css"]);
 });
