@@ -121,7 +121,22 @@ code {
 
 .share {
 	vertical-align: top;
-	margin: 0 0.1776in;
+	margin: 0 0.1776in 0.1776in;
+}
+
+// Github ==============================================================
+@import "github";
+
+.repo-box {
+	text-align: left;
+	max-width: initial;
+	width: 340px;
+	margin: 0 auto;
+
+	a {
+		text-decoration: none;
+		transition-duration: 0s;
+	}
 }
 
 // Patterns ============================================================
@@ -214,19 +229,19 @@ code {
 
 // Code ================================================================
 .class {
-	color: $red-code;
+	color: $blue-code;
 }
 
 .property {
-	color: $blue-code;
-}
-
-.function {
 	color: $red-code;
 }
 
-.color {
+.function {
 	color: $blue-code;
+}
+
+.color {
+	color: $red-code;
 }
 
 .unit {
