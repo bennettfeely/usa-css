@@ -33,10 +33,7 @@ html lang="en"
 							|  (1776 bytes)
 						a.button href="src/usa.css" 
 							span.download Download usa.css
-					.share-wrapper
-						a.twitter-share-button.share href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" data-text="USA.css – The most American CSS stylesheet. All units in inches, only 1776 bytes" data-dnt="true" data-show-count="true" Tweet
-						<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-						.fb-like.facebook-share-button.share data-href="https://bennettfeely.com/usa-css" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-share="true"
+					.repo-wrapper
 						.repo data-repo="bennettfeely/usa-css"
 							.repo-box
 								.repo-title
@@ -45,6 +42,10 @@ html lang="en"
 									span.repo-stars 1 star
 									span.repo-license MIT
 									span.repo-updated 1 week ago
+					.share-wrapper
+						a.twitter-share-button.share href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" data-text="USA.css – The most American CSS stylesheet. All units in inches, only 1776 bytes" data-dnt="true" data-show-count="true" Tweet
+						script async="true" src="https://platform.twitter.com/widgets.js" charset="utf-8"
+						.fb-like.facebook-share-button.share data-href="https://bennettfeely.com/usa-css" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-share="false"
 		main
 			.wrapper
 				.container
@@ -208,7 +209,7 @@ html lang="en"
 								code
 									div <span class="class">.usa-conic</span> {
 									div 
-										| 	<span class="comment">/* Conic gradients are supported in some browsers (<a href="https://caniuse.com/#feat=css-conic-gradients">Caniuse</a>) */</span>
+										| 	<span class="comment">/* Conic gradients are not supported in some browsers (<a href="https://caniuse.com/#feat=css-conic-gradients">Caniuse</a>) */</span>
 									div 	<span class="property">background</span>: <span class="function">repeating-conic-gradient</span>(
 									div 		<span class="color">#b22234</span> <span class="unit">0</span>,
 									div 		<span class="color">#b22234</span> <span class="unit">10deg</span>,

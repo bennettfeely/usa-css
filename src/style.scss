@@ -28,6 +28,11 @@ $code: Monaco, monospace;
 $transition: 0.1776s;
 
 // Base ================================================================
+html {
+	background: $blue;
+	padding: calc(0.1776in / 2) 0;
+}
+
 body {
 	font: 100%/1.1776 $serif;
 	background: $white;
@@ -103,25 +108,28 @@ code {
 	}
 }
 
-.bytes {
-	display: inline-block;
-	margin-left: 0.1776in;
-}
-
-.download-wrapper,
-.share-wrapper {
-	margin: 0.1776in 0 0;
-}
-
 .download {
 	display: inline-block;
 	text-decoration: none;
 	border-bottom: thin solid;
 }
 
+.download-wrapper,
+.share-wrapper,
+.repo-wrapper {
+	margin: 0.1776in 0 0;
+}
+
+.share-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+}
+
 .share {
+	font: 100%/1 sans-serif;
 	vertical-align: top;
-	margin: 0 0.1776in 0.1776in;
 }
 
 // Github ==============================================================
