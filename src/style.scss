@@ -304,7 +304,6 @@ footer {
 #carbonads {
 	position: relative;
 	z-index: 10;
-	min-height: 100px;
 
 	&:hover {
 		color: $blue-link;
@@ -315,6 +314,8 @@ footer {
 	margin: 0 auto;
 
 	img {
+		width: 130px;
+		height: 100px;
 		border-radius: $radius-small;
 		vertical-align: middle;
 	}
@@ -337,7 +338,7 @@ footer {
 
 .carbon-poweredby {
 	font-size: smaller;
-	opacity: 0.5;
+	opacity: 0.75;
 
 	&:before {
 		content: "/* ";
