@@ -30,7 +30,6 @@ $transition: 0.1776s;
 // Base ================================================================
 html {
 	background: $blue;
-	padding: calc(0.1776in / 2) 0;
 }
 
 body {
@@ -138,7 +137,7 @@ code {
 .repo-box {
 	text-align: left;
 	max-width: initial;
-	width: 340px;
+	width: 320px;
 	margin: 0 auto;
 
 	a {
