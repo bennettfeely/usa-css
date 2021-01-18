@@ -5,22 +5,17 @@ html lang="en"
 		meta charset="utf-8"
 		meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		title USA.css
-		meta name="description" content="The most American CSS stylesheet. Style your webpage with the stars and stripes as CSS backgrounds. All units are set in inches."
+		meta name="description" content="The most American CSS stylesheet. Style your webpage with the stars and stripes as CSS backgrounds. All units are set in inches. Total size: 1776 bytes."
 		/ Icons
 		link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png"
 		link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"
-		link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"
-		link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5"
-		meta name="msapplication-TileColor" content="#2b5797"
-		meta name="theme-color" content="#ffffff"
 		/ Styles
-		link href="style.min.css" rel="stylesheet"
+		meta name="theme-color" content="#ffffff"
+		link href="css/style.min.css" rel="stylesheet"
 		link href="usa.min.css" rel="stylesheet"
 		/ Fonts
 		link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"
 	body
-		#fb-root
-		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=247433128675302" nonce="Gy2FThBp"></script>
 		.usa-radial.banner
 		header
 			.wrapper
@@ -43,9 +38,11 @@ html lang="en"
 									span.repo-license MIT
 									span.repo-updated 1 week ago
 					.share-wrapper
-						a.twitter-share-button.share href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" data-text="USA.css – The most American CSS stylesheet. All units in inches, only 1776 bytes" data-dnt="true" data-show-count="true" Tweet
+						#fb-root
+						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=247433128675302" nonce="Gy2FThBp"></script>
 						script async="true" src="https://platform.twitter.com/widgets.js" charset="utf-8"
 						.fb-like.facebook-share-button.share data-href="https://bennettfeely.com/usacss" data-width="100" data-layout="button_count" data-action="like" data-size="large" data-share="false"
+						a.twitter-share-button.share href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-size="large" data-text="USA.css – The most American CSS stylesheet. All units in inches, only 1776 bytes" data-dnt="true" data-show-count="true" Tweet
 		main
 			.wrapper
 				.container
@@ -225,12 +222,16 @@ html lang="en"
 			.wrapper
 				.container
 					p &copy; 2020 <a href="https://bennettfeely.com">Bennett Feely</a> (<a href="https://twitter.com/bennettfeely">@bennettfeely</a>)<br> Released July 4, 2020<br> God Bless America!
-		script src="github.min.js"
+		script src="js/github.min.js"
 		javascript:
+			// GitHub.js
+			// See https://github.com/bennettfeely/ztext/blob/main/src/js/github.js
+			let right_now=new Date,times=[["second",1],["minute",60],["hour",3600],["day",86400],["week",604800],["month",2592e3],["year",31536e3]];function formatTime(e){e=new Date(e);for(var t=Math.round((right_now-e)/1e3),a=0;a<times.length;a++)if(t<times[a][1])return 0==a?"Just now":(t=Math.round(t/times[a-1][1]))+" "+times[a-1][0]+(1==t?" ago":"s ago")}function makeCard(e){let t=new XMLHttpRequest,a="https://api.github.com/repos/"+e;t.open("GET",a,!0),t.onload=function(){let t=JSON.parse(this.response),a=`<div class="repo-box">\n\t<div class="repo-title">\n\t\t<a class="repo-author" href="${t.owner.html_url}">${t.owner.login}</a> / <a class="repo-name" href="${t.html_url}">${t.name}</a>\n\t</div>\n\t<a href="${t.html_url}" class="repo-meta">\n\t\t<span class="repo-stars">${t.stargazers_count} stars</span>\n\t\t<span class="repo-license">MIT</span>\n\t\t<span class="repo-updated">${formatTime(t.pushed_at)}</span>\n\t</a>\n</div>`;document.querySelector(`[data-repo="${e}"]`).innerHTML=a},t.send()}document.querySelectorAll("[data-repo]").forEach((e=>{makeCard(e.dataset.repo)}));
+			// usa.css page functionality
 			const buttons = document.querySelectorAll(".pattern-show-css-button");
 			buttons.forEach((button) => {
 				button.addEventListener('click', () => {
-					var figure = button.parentNode.parentNode.parentNode;
+					const figure = button.parentNode.parentNode.parentNode;
 					figure.classList.add("is-showing-code");
 				});
 			});

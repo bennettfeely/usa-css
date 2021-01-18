@@ -1,14 +1,13 @@
 // Partials ============================================================
 @import "reset";
-@import "functions";
-@import "extensions";
 
+// Variables ===========================================================
 $tablet: 4in;
 
 $black: #1a1a1a;
 $gray: #bababa;
+$gray-light: #dadada;
 $white: #fff;
-
 $red: #b22234;
 $blue: #3c3b6e;
 
@@ -16,16 +15,15 @@ $blue-code: #7aa6da;
 $red-code: #d54e53;
 $gray-code: $gray;
 $white-code: $white;
-
 $blue-link: #0366d6;
 
-$radius-small: 4px;
-$radius-large: 8px;
+$radius-small: calc(0.1776in / 3);
+$radius-large: calc(0.1776in / 2);
+
+$transition: 0.1776s;
 
 $serif: Libre Baskerville, Georgia;
 $code: Monaco, monospace;
-
-$transition: 0.1776s;
 
 // Base ================================================================
 body {
@@ -74,7 +72,7 @@ a {
 	transition: color $transition;
 
 	&:hover {
-		color: shade($blue-link, 50%);
+		color: mix($blue-link, $black);
 	}
 }
 
@@ -105,8 +103,8 @@ code {
 
 .download {
 	display: inline-block;
-	text-decoration: none;
 	border-bottom: thin solid;
+	text-decoration: none;
 }
 
 .download-wrapper,
@@ -127,7 +125,7 @@ code {
 	vertical-align: top;
 }
 
-// Github ==============================================================
+// GitHub ==============================================================
 @import "github";
 
 .repo-box {
@@ -168,7 +166,6 @@ code {
 
 .pattern-meta {
 	width: 50%;
-	line-height: 1.4;
 	margin: 0 0 0 0.1776in;
 	background: $black;
 	color: $white;
@@ -191,17 +188,16 @@ code {
 	font: inherit;
 	line-height: 1.776;
 	user-select: none;
-	border: 1px solid;
+	border: 1px solid $gray-code;
 	padding: 0 1ch;
 	background: transparent;
 	cursor: pointer;
-	color: $white;
 	border-radius: $radius-small;
 	margin: $radius-large 2ch;
-	transition: color $transition;
+	color: $white;
 
 	&:hover {
-		color: $gray;
+		border-color: $white;
 	}
 }
 
@@ -221,14 +217,6 @@ code {
 		display: block;
 	}
 }
-
-// .pattern-snippet {
-// 	display: none;
-// }
-
-// .pattern-css {
-// 	display: block;
-// }
 
 // Code ================================================================
 .class {
@@ -290,10 +278,10 @@ footer {
 	font: 80%/1.4 $code;
 	background: linear-gradient(
 		to bottom right,
-		#dadada,
+		$gray-light,
 		$white 33%,
 		$white 66%,
-		#dadada
+		$gray-light
 	);
 }
 

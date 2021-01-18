@@ -1,13 +1,17 @@
 // Include plugins ===================================================
 var gulp = require("gulp");
-var autoprefixer = require("gulp-autoprefixer");
 var browserSync = require("browser-sync");
-var cssmin = require("gulp-cssmin");
-var htmlmin = require("gulp-htmlmin");
 var pump = require("pump");
 var rename = require("gulp-rename");
-var sass = require("gulp-sass");
+
+// HTML
 var slim = require("gulp-slim");
+var htmlmin = require("gulp-htmlmin");
+
+// CSS
+var sass = require("gulp-sass");
+var autoprefixer = require("gulp-autoprefixer");
+var cssmin = require("gulp-cssmin");
 var size = require("gulp-size");
 
 // Browser Sync ========================================================
@@ -70,7 +74,7 @@ gulp.task("scss", function () {
 				path.extname = ".css";
 			})
 		)
-		.pipe(gulp.dest(""))
+		.pipe(gulp.dest("css"))
 		.pipe(
 			browserSync.reload({
 				stream: true,
@@ -91,7 +95,13 @@ gulp.task("css", function () {
 			})
 		)
 		.pipe(gulp.dest(""))
-		.pipe(size({ pretty: false, showFiles: true, showTotal: true }))
+		.pipe(
+			size({
+				pretty: false,
+				showFiles: true,
+				showTotal: true,
+			})
+		)
 		.pipe(
 			browserSync.reload({
 				stream: true,
@@ -101,7 +111,6 @@ gulp.task("css", function () {
 
 // Watch Files For Changes =============================================
 gulp.task("watch", ["sync"], function () {
-	gulp.watch("src/*.md", ["markdown", "html"]);
 	gulp.watch("src/*.slim", ["html"]);
 	gulp.watch("src/*.scss", ["scss"]);
 	gulp.watch("src/*.css", ["css"]);
